@@ -20,7 +20,7 @@ class Detect extends Component {
 
         } catch (e) {
             return (
-                <h1><b>Ingrese una secuencia valida</b></h1>
+                <h1><b>{e.toString()}</b></h1>
             )
         }
     }

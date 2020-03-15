@@ -4,7 +4,7 @@ const ARNm = (ADN = "") => {
     const bases_complementarias = { A: "U", U: "A", T: "A", G: "C", C: "G" }
     for (const base of data) {
         if (!Object.keys(bases_complementarias).includes(base)) {
-            throw new Error(`"${base}" no es un valor aceptado`)
+            throw new Error(`"${base}" no es una base aceptado`)
         }
     }
     return data.map(base => bases_complementarias[base]).join("")
@@ -61,9 +61,22 @@ const ADN2ARN = ADN => {
     const codon = findCodon(arnm)
     return ARNt(codon)
 }
+const isValid = secuencia => {
+    const starter = "AUG"
+    for (let k = 0; k < secuencia.length; k++) {
+        if (secuencia.slice(k, k + 3) === starter) {
+            return true
+        }
+    }
+    return false
+
+}
 const allAboutIt = (adn = "") => {
     if (!adn.length) {
         throw new Error("La cadena esta vacia")
+    }
+    if(!isValid(ARNm(adn))){
+        throw new Error("La cadena no contiene triplete inicializador")
     }
     const arnm = ARNm(adn)
     const codon = findCodon(arnm)
@@ -71,7 +84,7 @@ const allAboutIt = (adn = "") => {
     const peptidos = findPeptidos(codon)
     return {
         "ADN original": adn,
-        "ARN mensaje": arnm, 
+        "ARN mensajero": arnm, 
         "ARN transmisor":arnt, 
         "Codon": codon, 
         "Peptidos": peptidos

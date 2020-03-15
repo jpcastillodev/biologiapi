@@ -23,12 +23,12 @@ class App extends Component {
           <p>
             Bienvenido a <em>Biologiapi</em>
           </p>
-          <br/>
-          <Detect ADN={this.state.ADN} />
+          <br />
+          {this.state.ADN.length ? <Detect ADN={this.state.ADN} /> : <h1>Ingresa una secuencia de ADN</h1>}
           <input
             className="input"
             type="text"
-            placeholder="Ingrese la cadena de ADN"
+            placeholder="TAC..."
             onChange={this.handleChange.bind(this)}
           />
         </header>

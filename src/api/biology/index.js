@@ -2,21 +2,19 @@ import React, { Component } from 'react'
 import { allAboutIt } from './adn'
 
 
-class Detect extends Component {
+class ADN extends Component {
     render() {
         try {
             const dataTable = Object.entries(allAboutIt(this.props.ADN || ""))
-            return (
-                <>
-                    {dataTable.map(([data, result], key) => {
+            return (<>
+                {dataTable.map(
+                    ([data, result], key) => {
                         return (
-                            <p key={key}>
-                                <b>{data}</b> : {result}
-                            </p>
-                        )
+                        <p key={key}>
+                            <b>{data}</b> : {result}
+                        </p>)
                     })}
-                </>
-            )
+            </>)
 
         } catch (e) {
             return (
@@ -27,4 +25,4 @@ class Detect extends Component {
 
 }
 
-export default Detect
+export default ADN 

@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import Detect from './api/biology/index'
+import ADN from './api/biology/index'
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      ADN: ""
-    }
+    this.state = { ADN: "" }
   }
 
   handleChange({ target }) {
@@ -24,11 +22,15 @@ class App extends Component {
             Bienvenido a <em>Biologiapi</em>
           </p>
           <br />
-          {this.state.ADN.length ? <Detect ADN={this.state.ADN} /> : <h1>Ingresa una secuencia de ADN</h1>}
+          {
+            this.state.ADN.length ?
+              <ADN ADN={this.state.ADN} /> :
+              <h1>Ingresa una secuencia de ADN</h1>
+          }
           <input
             className="input"
             type="text"
-            placeholder="TAC..."
+            placeholder="recuerda ingresar una base iniciadora, por ej: 'Tac'..."
             onChange={this.handleChange.bind(this)}
           />
         </header>

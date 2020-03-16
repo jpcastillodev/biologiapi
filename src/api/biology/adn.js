@@ -38,7 +38,6 @@ const findCodon = (input = "") => {
 
     return codon
 }
-
 const findPeptidos = (input = "") => {
     const arnm = []
     for (let k = 0; k < input.length; k += 3) {

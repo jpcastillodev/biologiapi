@@ -84,8 +84,8 @@ const allAboutIt = (adn = "") => {
     return {
         "ADN original": adn,
         "ARN mensajero": arnm, 
-        "ARN transmisor":arnt, 
         "Codon": codon, 
+        "ARN transmisor":arnt, 
         "Peptidos": peptidos
         
     }

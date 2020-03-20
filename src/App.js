@@ -11,7 +11,7 @@ class App extends Component {
 
   handleChange({ target }) {
     console.log(target)
-    // this.setState({ ADN: target.value.replace(/ |-/g,"") })
+    this.setState({ ADN: target.value.replace(/ |-/g,"") })
   }
 
   render() {
